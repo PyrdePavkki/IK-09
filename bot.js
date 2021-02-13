@@ -18,7 +18,6 @@ msg.member.setNickname("CT-" + tag[1] + name[0])
     msg.member.roles.remove(unverified)
     msg.member.roles.add(verified)
 })
-.catch(msg.reply("Something went wrong. Check the nickname isn't too long"))
 } else if (msg.channel == channel && msg.member.roles.cache.has(unverified) && msg.content.startsWith("CT-")) {
     console.log("CT- starting message noticed")
     let name = msg.content.split(" ")
@@ -31,10 +30,10 @@ msg.member.setNickname("CT-" + tag[1] + name[0])
     tag = tag[1]
     tag = tag.toString()
     if (tag == blacklist[0] || tag == blacklist[1] || tag == blacklist[2] || tag == blacklist[3]) {
-    tag = Math.floor(Math.random() * 10) + Math.floor(Math.random() * 10) + Math.floor(Math.random() * 10) + Math.floor(Math.random() * 10)
-    tag = tag.toString()
+        tag = Math.floor(Math.random() * 10) + "" + Math.floor(Math.random() * 10) + "" + Math.floor(Math.random() * 10) + "" + Math.floor(Math.random() * 10)
+        tag = tag.toString()
 }
-msg.member.setNickname("CT-" + tag[1] + "\"" + name[0] + "\"")
+msg.member.setNickname("CT-" + tag[1] + name)
 .then( () => {
     msg.member.roles.remove(unverified)
     msg.member.roles.add(verified)
