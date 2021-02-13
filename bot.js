@@ -5,7 +5,7 @@ const channel = process.env.CHANNEL_ID;
 const unverified = process.env.UNVERIFIED_ROLE_ID;
 const verified = process.env.VERIFIED_ROLE_ID;
 bot.on('message', (msg) => {
-if (msg.channel == channel && msg.member.roles.cache.includes(unverified) && msg.content.startsWith("\"")) { 
+if (msg.channel == channel && msg.member.roles.cache.has(unverified) && msg.content.startsWith("\"")) { 
 let name = msg.content.split(" ")
 let tag = msg.user.tag.split("#")
 if (tag == blacklist[0] || tag == blacklist[1] || tag == blacklist[2] || tag == blacklist[3]) {
@@ -18,7 +18,7 @@ msg.member.setNickname("CT-" + tag[1] + "\"" + name[0] + "\"")
     msg.member.roles.add(verified)
 })
 .catch(msg.reply("Something went wrong. Check the nickname isn't too long"))
-} else if (msg.channel == channel && msg.member.roles.cache.includes(unverified) && msg.content.startsWith("CT-")) {
+} else if (msg.channel == channel && msg.member.roles.cache.has(unverified) && msg.content.startsWith("CT-")) {
     let name = msg.content.split(" ")
     name = name[1]
     name = name.substr(-1)
