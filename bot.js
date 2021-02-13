@@ -13,7 +13,7 @@ if (tag == blacklist[0] || tag == blacklist[1] || tag == blacklist[2] || tag == 
     tag = Math.floor(Math.random() * 10) + "" + Math.floor(Math.random() * 10) + "" + Math.floor(Math.random() * 10) + "" + Math.floor(Math.random() * 10)
     tag = tag.toString()
 }
-msg.member.setNickname("CT-" + tag[1] + name[0])
+msg.member.setNickname("CT-" + tag[1] + " " + name[0])
 .then( () => {
     msg.member.roles.remove(unverified)
     msg.member.roles.add(verified)
@@ -22,8 +22,6 @@ msg.member.setNickname("CT-" + tag[1] + name[0])
     console.log("CT- starting message noticed")
     let name = msg.content.split(" ")
     name = name[1]
-    name = name.substr(-1)
-    name = name.substr(1)
     let tag = msg.content.split(" ")
     tag = tag[0]
     tag = tag.split("-")
@@ -33,7 +31,7 @@ msg.member.setNickname("CT-" + tag[1] + name[0])
         tag = Math.floor(Math.random() * 10) + "" + Math.floor(Math.random() * 10) + "" + Math.floor(Math.random() * 10) + "" + Math.floor(Math.random() * 10)
         tag = tag.toString()
 }
-msg.member.setNickname("CT-" + tag[1] + name)
+msg.member.setNickname("CT-" + tag + " " + name)
 .then( () => {
     msg.member.roles.remove(unverified)
     msg.member.roles.add(verified)
