@@ -10,7 +10,7 @@ if (msg.channel == channel && msg.member.roles.cache.has(unverified) && msg.cont
 let name = msg.content.split(" ")
 let tag = msg.author.tag.split("#")
 if (tag == blacklist[0] || tag == blacklist[1] || tag == blacklist[2] || tag == blacklist[3]) {
-    tag = Math.floor(Math.random() * 10) + Math.floor(Math.random() * 10) + Math.floor(Math.random() * 10) + Math.floor(Math.random() * 10)
+    tag = Math.floor(Math.random() * 10) + "" + Math.floor(Math.random() * 10) + "" + Math.floor(Math.random() * 10) + "" + Math.floor(Math.random() * 10)
     tag = tag.toString()
 }
 msg.member.setNickname("CT-" + tag[1] + name[0])
