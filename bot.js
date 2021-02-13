@@ -7,7 +7,7 @@ const verified = process.env.VERIFIED_ROLE_ID;
 bot.on('message', (msg) => {
 if (msg.channel == channel && msg.member.roles.cache.has(unverified) && msg.content.startsWith("\"")) { 
 let name = msg.content.split(" ")
-let tag = msg.user.tag.split("#")
+let tag = msg.author.tag.split("#")
 if (tag == blacklist[0] || tag == blacklist[1] || tag == blacklist[2] || tag == blacklist[3]) {
     tag = Math.floor(Math.random() * 10) + Math.floor(Math.random() * 10) + Math.floor(Math.random() * 10) + Math.floor(Math.random() * 10)
     tag = tag.toString()
