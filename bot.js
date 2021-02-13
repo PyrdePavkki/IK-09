@@ -13,7 +13,7 @@ if (tag == blacklist[0] || tag == blacklist[1] || tag == blacklist[2] || tag == 
     tag = Math.floor(Math.random() * 10) + Math.floor(Math.random() * 10) + Math.floor(Math.random() * 10) + Math.floor(Math.random() * 10)
     tag = tag.toString()
 }
-msg.member.setNickname("CT-" + tag[1] + "\"" + name[0] + "\"")
+msg.member.setNickname("CT-" + tag[1] + name[0])
 .then( () => {
     msg.member.roles.remove(unverified)
     msg.member.roles.add(verified)
