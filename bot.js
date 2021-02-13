@@ -4,6 +4,7 @@ const blacklist = ["0000", "0001", "6969", "0420"]
 const channel = process.env.CHANNEL_ID;
 const unverified = process.env.UNVERIFIED_ROLE_ID;
 const verified = process.env.VERIFIED_ROLE_ID;
+const logs = process.env.LOG_CHANNEL_ID;
 bot.on('message', (msg) => {
 if (msg.channel == channel && msg.member.roles.cache.has(unverified) && msg.content.startsWith("\"")) { 
     console.log("Name starting message noticed")
