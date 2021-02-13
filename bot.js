@@ -1,14 +1,14 @@
 const Discord = require("discord.js");
 const bot = new Discord.Client();
 const blacklist = ["0000", "0001", "6969", "0420"]
-const channel = [process.env.CHANNEL_ID_51ST, process.env.CHANNEL_ID_FIELD];
+const channel = [process.env.CHANNEL_ID_51ST, process.env.CHANNEL_ID];
 const unverified = {
     "797594762668146739": process.env.UNVERIFIED_ROLE_ID_51ST,
-    "810169385431203880": process.env.UNVERIFIED_ROLE_ID_FIELD
+    "810169385431203880": process.env.UNVERIFIED_ROLE_ID
 }
 const verified = {
     "797594762668146739": process.env.VERIFIED_ROLE_ID_51ST,
-    "810169385431203880": process.env.VERIFIED_ROLE_ID_FIELD
+    "810169385431203880": process.env.VERIFIED_ROLE_ID
 }
 const logs = process.env.LOG_CHANNEL_ID;
 bot.on('message', (msg) => {
