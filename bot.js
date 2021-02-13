@@ -12,7 +12,7 @@ let verified = {
 }
 const logs = process.env.LOG_CHANNEL_ID;
 bot.on('message', (msg) => {
-if (channel.includes(msg.channel.id) && unverified.values.includes(msg.member.roles.cache) && msg.content.startsWith("\"")) { 
+if (channel.includes(msg.channel.id) && unverified.values().includes(msg.member.roles.cache) && msg.content.startsWith("\"")) { 
     logs.send("From: " + msg.guild.id + "Name starting message noticed")
 let name = msg.content.split(" ")
 let tag = msg.author.tag.split("#")
@@ -25,7 +25,7 @@ msg.member.setNickname("CT-" + tag[1] + " " + name[0])
     msg.member.roles.remove(unverified[msg.guild.id.toString()])
     msg.member.roles.add(verified[msg.guild.id.toString()])
 })
-} else if (channel.includes(msg.channel.id) && unverified.values.includes(msg.member.roles.cache) && msg.content.startsWith("CT-")) {
+} else if (channel.includes(msg.channel.id) && unverified.values().includes(msg.member.roles.cache) && msg.content.startsWith("CT-")) {
     logs.send("From: " + msg.guild.id + "CT- starting message noticed")
     let name = msg.content.split(" ")
     name = name[1]
