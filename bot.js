@@ -13,7 +13,7 @@ const verified = {
 const logs = process.env.LOG_CHANNEL_ID;
 bot.on('message', (msg) => {
 if (channel.has(msg.channel.id) && unverified.has(msg.member.roles.cache) && msg.content.startsWith("\"")) { 
-    logs.send("Name starting message noticed")
+    logs.send("From: " + msg.guild.id + "Name starting message noticed")
 let name = msg.content.split(" ")
 let tag = msg.author.tag.split("#")
 if (tag == blacklist[0] || tag == blacklist[1] || tag == blacklist[2] || tag == blacklist[3]) {
@@ -26,7 +26,7 @@ msg.member.setNickname("CT-" + tag[1] + " " + name[0])
     msg.member.roles.add(verified[msg.guild.id.toString()])
 })
 } else if (channel.has(msg.channel.id) && unverified.has(msg.member.roles.cache) && msg.content.startsWith("CT-")) {
-    logs.send("CT- starting message noticed")
+    logs.send("From: " + msg.guild.id + "CT- starting message noticed")
     let name = msg.content.split(" ")
     name = name[1]
     let tag = msg.content.split(" ")
