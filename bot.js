@@ -18,7 +18,7 @@ msg.member.setNickname("CT-" + tag[1] + "\"" + name[0] + "\"")
     msg.member.roles.add(verified)
 })
 .catch(msg.reply("Something went wrong. Check the nickname isn't too long"))
-} else if (msg.channel == channel && msg.member.roles.has(unverified) && msg.content.startsWith("CT-")) {
+} else if (msg.channel == channel && msg.member.roles.includes(unverified) && msg.content.startsWith("CT-")) {
     let name = msg.content.split(" ")
     name = name[1]
     name = name.substr(-1)
