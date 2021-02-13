@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const bot = new Discord.Client();
-const config = require('config.json')
+const blacklist = ["0000", "0001", "6969", "0420"]
 const channel = process.env.CHANNEL_ID;
 const unverified = process.env.UNVERIFIED_ROLE_ID;
 const verified = process.env.VERIFIED_ROLE_ID;
@@ -8,7 +8,7 @@ bot.on('message', (msg) => {
 if (msg.channel == channel && msg.member.roles.has(unverified) && msg.content.startsWith("\"")) { 
 let name = msg.content.split(" ")
 let tag = msg.user.tag.split("#")
-if (tag == config.blacklist[0] || tag == config.blacklist[1] || tag == config.blacklist[2] || tag == config.blacklist[3]) {
+if (tag == blacklist[0] || tag == blacklist[1] || tag == blacklist[2] || tag == blacklist[3]) {
     tag = Math.floor(Math.random() * 10) + Math.floor(Math.random() * 10) + Math.floor(Math.random() * 10) + Math.floor(Math.random() * 10)
     tag = tag.toString()
 }
@@ -28,7 +28,7 @@ msg.member.setNickname("CT-" + tag[1] + "\"" + name[0] + "\"")
     tag = tag.split("-")
     tag = tag[1]
     tag = tag.toString()
-    if (tag == config.blacklist[0] || tag == config.blacklist[1] || tag == config.blacklist[2] || tag == config.blacklist[3]) {
+    if (tag == blacklist[0] || tag == blacklist[1] || tag == blacklist[2] || tag == blacklist[3]) {
     tag = Math.floor(Math.random() * 10) + Math.floor(Math.random() * 10) + Math.floor(Math.random() * 10) + Math.floor(Math.random() * 10)
     tag = tag.toString()
 }
