@@ -24,7 +24,7 @@ console.log("No missing roles")
 let isBlacklisted = false
 for (let i = 0; i < blacklist.length; i++) {
     if (tag == blacklist[i]) { isBlacklisted = true; }
-    console.log(`Blacklisting number ${i + 1} done with the result ${isBlackListed}`)
+    console.log(`Blacklisting number ${i + 1} done with the result ${isBlacklisted}`)
 }
 if (isBlacklisted) {
     console.log("Blacklisted tag found")
