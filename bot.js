@@ -11,30 +11,37 @@ const verified = process.env.VERIFIED_ROLE_ID;
 bot.on('message', (msg) => {
 if (msg.channel == channel && msg.member.roles.cache.has(unverified) && msg.content.startsWith("\"")) { 
     //logs.send("Name starting message noticed")
+    console.log("Interesting message detected")
 let name = msg.content.split(" ")
 let tag = msg.author.tag.split("#")
 let missingRole = false
 checkRoles (msg, classes, "You have not selected a class! Please select one before you can request a name")
 checkRoles (msg, platforms, "You must choose the platform you are playing on! Please select one before you can request a name")
 checkRoles (msg, regions, "You shall give us info of what region of the world you live in! Please select one before you can request a name")
-if (missingRole) { return }
+if (missingRole) { console.log("Missing role detected") }
 else {
+    console.log("No missing roles")
 let isBlacklisted = false
 for (let i = 0; i < blacklist.length; i++) {
     if (tag == blacklist[i]) { isBlacklisted = true; }
     else {return}
 }
 if (isBlacklisted) {
+    console.log("Blacklisted tag found")
     tag = Math.floor(Math.random() * 10) + "" + Math.floor(Math.random() * 10) + "" + Math.floor(Math.random() * 10) + "" + Math.floor(Math.random() * 10)
     tag = tag.toString()
+    console.log(`Randomized tag is ${tag}`)
 }
 const filter = (reaction, member) => reaction.emoji.name === '✅' && member.roles.cache.has(process.env.FILTER_ROLE)
+console.log("Filter set for ID " + process.env.FILTER_ROLE)
 msg.awaitReactions(filter, {maxUsers: 1})
 .then( () => {
+    console.log("Reaction detected!")
     msg.member.setNickname("CT-" + tag[1] + " " + name[0])
     .then( () => {
         msg.member.roles.remove(unverified)
         msg.member.roles.add(verified)
+        console.log("Finished!")
     })
 })
 .catch(console.log(`Something went wrong with a request by ${message.author.username}`))
@@ -69,6 +76,7 @@ function checkRoles (msg, array, reply) {
         msg.reply(reply)
         missingRole = true
     } else { return }
+    console.log(`Check for ${array} is done, with output ${missingRole}`)
 }
 
 
