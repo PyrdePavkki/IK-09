@@ -34,7 +34,7 @@ if (isBlacklisted) {
 }
 const filter = (reaction) => reaction.emoji.name === '✅' && msg.member.roles.cache.has(process.env.FILTER_ROLE)
 console.log("Filter set for ID " + process.env.FILTER_ROLE)
-msg.awaitReactions(filter, {maxUsers: 1})
+msg.awaitReactions(filter, {maxUsers: 1, time: 86400000})
 .then( () => {
     console.log("Reaction detected!")
     msg.member.setNickname("CT-" + tag[1] + " " + name[0])
