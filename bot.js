@@ -20,11 +20,10 @@ checkRoles (msg, platforms, "You must choose the platform you are playing on! Pl
 checkRoles (msg, regions, "You shall give us info of what region of the world you live in! Please select one before you can request a name")
 if (missingRole) { console.log("Missing role detected") }
 else {
-    console.log("No missing roles")
+console.log("No missing roles")
 let isBlacklisted = false
 for (let i = 0; i < blacklist.length; i++) {
     if (tag == blacklist[i]) { isBlacklisted = true; }
-    else {return}
     console.log(`Blacklisting number ${i + 1} done with the result ${isBlackListed}`)
 }
 if (isBlacklisted) {
