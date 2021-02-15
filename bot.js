@@ -44,7 +44,7 @@ msg.awaitReactions(filter, {maxUsers: 1})
         console.log("Finished!")
     })
 })
-.catch(console.log(`Something went wrong with a request by ${message.author.username}`))
+.catch(console.log(`Something went wrong with a request by ${msg.author.username}`))
 }
 /* } else if (msg.channel == channel && msg.member.roles.cache.has(unverified) && msg.content.startsWith("CT-")) {
     logs.send("CT- starting message noticed")
