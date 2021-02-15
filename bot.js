@@ -14,9 +14,9 @@ if (msg.channel == channel && msg.member.roles.cache.has(unverified) && msg.cont
 let name = msg.content.split(" ")
 let tag = msg.author.tag.split("#")
 let missingRole = false
-checkRoles (classes, "You have not selected a class! Please select one before you can request a name")
-checkRoles (platforms, "You must choose the platform you are playing on! Please select one before you can request a name")
-checkRoles (regions, "You shall give us info of what region of the world you live in! Please select one before you can request a name")
+checkRoles (msg, classes, "You have not selected a class! Please select one before you can request a name")
+checkRoles (msg, platforms, "You must choose the platform you are playing on! Please select one before you can request a name")
+checkRoles (msg, regions, "You shall give us info of what region of the world you live in! Please select one before you can request a name")
 if (missingRole) { return }
 else {
 let isBlacklisted = false
@@ -59,7 +59,7 @@ msg.member.setNickname("CT-" + tag + " " + name)
 })*/
 } 
 })
-function checkRoles (array, reply) {
+function checkRoles (msg, array, reply) {
     let hasRole = false;
     for (let i = 0; i < array.length; i++) {
         if (msg.member.roles.cache.has(array[i])) { hasRole = true; }
