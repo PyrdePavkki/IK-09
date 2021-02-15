@@ -70,13 +70,12 @@ function checkRoles (msg, array, reply) {
     let hasRole = false;
     for (let i = 0; i < array.length; i++) {
         if (msg.member.roles.cache.has(array[i])) { hasRole = true; }
-        else { return }
     } 
     if (!hasRole) {
         msg.reply(reply)
         missingRole = true
-    } else { return }
-    console.log(`Check for ${array} is done, with output ${missingRole}`)
+    } else { console.log(`Check for ${array} is done, with output ${missingRole}`) }
+    
 }
 
 
