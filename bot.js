@@ -32,7 +32,7 @@ if (isBlacklisted) {
     tag = tag.toString()
     console.log(`Randomized tag is ${tag}`)
 }
-const filter = (reaction, member) => reaction.emoji.name === '✅' && member.roles.cache.has(process.env.FILTER_ROLE)
+const filter = (reaction) => reaction.emoji.name === '✅' && msg.member.roles.cache.has(process.env.FILTER_ROLE)
 console.log("Filter set for ID " + process.env.FILTER_ROLE)
 msg.awaitReactions(filter, {maxUsers: 1})
 .then( () => {
