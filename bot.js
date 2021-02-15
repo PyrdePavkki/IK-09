@@ -77,7 +77,7 @@ function checkRoles (msg, array, reply) {
         msg.reply(reply)
         missingRole = true
     }
-    console.log(`Check for ${array} is done, with output ${missingRole}`)
+    console.log(`Check for ${Object.keys(array)} is done, with output ${missingRole}`)
     
 }
 
