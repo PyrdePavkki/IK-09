@@ -7,10 +7,10 @@ const regions = ["797821459745079316", "797821476975018034", "797821495720148992
 const channel = process.env.CHANNEL_ID;
 const unverified = process.env.UNVERIFIED_ROLE_ID;
 const verified = process.env.VERIFIED_ROLE_ID;
-const logs = new Discord.TextChannel("810169385431203880", { id: process.env.LOG_CHANNEL_ID});
+//const logs = new Discord.TextChannel("810169385431203880", { id: process.env.LOG_CHANNEL_ID});
 bot.on('message', (msg) => {
 if (msg.channel == channel && msg.member.roles.cache.has(unverified) && msg.content.startsWith("\"")) { 
-    logs.send("Name starting message noticed")
+    //logs.send("Name starting message noticed")
 let name = msg.content.split(" ")
 let tag = msg.author.tag.split("#")
 let missingRole = false
@@ -37,7 +37,7 @@ msg.awaitReactions(filter, {maxUsers: 1})
         msg.member.roles.add(verified)
     })
 })
-.catch(logs.send(`Something went wrong with a request by ${message.author.username}`))
+.catch(console.log(`Something went wrong with a request by ${message.author.username}`))
 }
 /* } else if (msg.channel == channel && msg.member.roles.cache.has(unverified) && msg.content.startsWith("CT-")) {
     logs.send("CT- starting message noticed")
