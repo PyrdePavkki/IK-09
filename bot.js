@@ -25,6 +25,7 @@ let isBlacklisted = false
 for (let i = 0; i < blacklist.length; i++) {
     if (tag == blacklist[i]) { isBlacklisted = true; }
     else {return}
+    console.log(`Blacklisting number ${i + 1} done with the result ${isBlackListed}`)
 }
 if (isBlacklisted) {
     console.log("Blacklisted tag found")
