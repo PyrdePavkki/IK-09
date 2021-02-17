@@ -49,7 +49,7 @@ msg.awaitReactions(filter, {maxUsers: 1, time: 86400000})
 .catch(console.log(`Something went wrong with a request by ${msg.author.username}`))
 }
 /* } else if (msg.channel == channel && msg.member.roles.cache.has(unverified) && msg.content.startsWith("CT-")) {
-    logs.send("CT- starting message noticed")
+    console.log("CT- starting message noticed")
     let name = msg.content.split(" ")
     name = name[1]
     let tag = msg.content.split(" ")
